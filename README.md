@@ -9,7 +9,7 @@ A social meida site using django with email authenticated login system where use
 - Change their password 
 - Update their profile picture and bio 
 - Check each other's profile 
-- See last seen of others 
+- See last login time of others 
 - See own email
 - See when their account was created 
 
