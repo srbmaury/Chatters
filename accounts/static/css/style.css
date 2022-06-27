@@ -125,6 +125,9 @@ nav{
     background-position: 140% 115%;
     background-size: 60%;
     background-attachment: fixed;
+    margin-left:140px; 
+    min-height:90vh; 
+    max-width:89vw;
 }
 
 .user-list{
@@ -167,5 +170,6 @@ img.profile-photo-lg{
     }
     #view_profile{
         background: white;
+        margin-left:25px;
     }
 }
