@@ -1,0 +1,36 @@
+{% extends 'feed/base.html' %}
+{%block content%}
+
+    {%load static%}
+    <form method = "POST">
+        <div style="margin-left:140px;" id="view_profile">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="people-nearby">
+                        <br><br>
+                        <h3>All Users:</h3>
+                        {%for curr_user in users%}
+                            <div class="nearby-user">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2">
+                                        <img src="{{curr_user.profile.image.url}}" alt="user" class="profile-photo-lg">
+                                    </div>
+                                    <div class="col-md-7 col-sm-7">
+                                        <h5><a href="#" class="profile-link">{{curr_user.first_name}} {{curr_user.last_name}}</a></h5>
+                                        <p>@{{curr_user.username}}</p>
+                                        <p class="text-muted">{{curr_user.profile.bio}}</p>
+                                        <p class="text-muted">LAST LOGIN: {{curr_user.last_login}}</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        {%csrf_token%}
+                                        <button class="btn btn-primary pull-right"><a href = "{% url 'show_profile' curr_user.username %}" style="color:white;">View Profile</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        {%endfor%}
+                    </div>
+            	</div>
+        	</div>
+        </div>
+    </form>
+{%endblock content%}

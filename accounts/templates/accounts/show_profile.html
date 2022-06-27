@@ -1,0 +1,58 @@
+{% extends 'feed/base.html' %}
+{%load static%}
+{% block content%}
+
+    <div class = 'container'>
+        <div class = 'col-sm-2'>
+            <div class = 'media'>
+                <img class = 'rounded-circle account-img img-fluid' src = "{{user.profile.image.url}}" alt = 'profile image'>
+            </div>
+        </div>
+        <br>
+        <div>
+            <h3>@{{user.username}}    <h4>{{user.first_name}} {{user.last_name}} </h4></h3>
+        </div>
+        <div> LAST LOGIN: {{user.last_login}}</div>
+        
+        <br><br>
+        <div class = 'card'>
+            <div class = 'card-body'>
+                {{user.profile.bio}}
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        {%if posts_list%}
+            <h3>RECENT POSTS:</h3>
+        {%endif%}
+        {%for post in posts_list%}
+            <div class="card">
+                <div class="card-header">
+                    <p>{{post.datetime}}</p>
+                </div>
+                <div class="card-body">
+                    <p class = "card-text"><h5>{{post.text}}</h5></p>
+                
+                    {% if post.uname == user.username %}
+                        <a class= 'editdelete' href = '{%url 'postdelete' post.id %}' title='delete'><img src="{% static '../static/image/delete.png' %}"></a>
+                        <a class= 'editdelete' href = '{%url 'postupdate' post.id %}' title='edit'><img src="{% static '../static/image/edit.png' %}"></a>
+                    {%endif%}
+                </div>
+                <form action = "{%url 'like_post' post.pk %}" method = 'POST'>
+                    {% csrf_token %}
+                    <button type='submit' class='btn btn-primary btn-sm' name='post_id' value = "{{post.id}}" style = 'margin-left:20px; margin-bottom:2px;''>Like </button> -
+                     {{post.total_likes}} 
+                    {% if post.total_likes < 2%}
+                        <span>like</span>
+                    {% else %}
+                        <span>likes</span>
+                    {% endif %}
+                </form>
+            </div>
+            <br>
+        
+        {% endfor %}
+    </div>
+
+{%endblock content%}

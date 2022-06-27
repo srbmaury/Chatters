@@ -1,0 +1,62 @@
+{% extends 'feed/base.html'%}
+{% load static%}  
+    
+{% block content%}
+
+    {%if messages%}
+        <div class="alert alert-danger">
+            {%for message in messages%}
+                {{message}}
+            {%endfor%}
+        </div>
+    {%endif%}
+    <br><br>
+    <div class = 'container'>
+
+        <div>
+            <h1 class='welcome'>Hello <a class = 'username' href="{%url 'profile' %}">{{user.username}}</a></h1>
+        </div>
+
+        <div class = 'contents-of-homepage'>
+            <p class="welcome-message">Welcome to chatters</p>
+            <hr class="my-4">
+            <p class = 'instruction'>Click below to create a post</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{%url 'postcreate' %}" role="button">Create</a>
+            </p>
+        </div>
+        
+        {%for post in object_list%}
+            <div class="card">
+                <div class="card-header">
+                    {% if post.uname == user%}
+                        <a href = "{% url 'profile' %}"><h4>{{post.uname}}</h4></a>
+                    {% else %}
+                        <a href = "{% url 'show_profile' post.uname %}"><h4>{{post.uname}}</h4></a>
+                    {% endif %}
+                    <p>{{post.datetime}}</p>
+                </div>
+                <div class="card-body">
+                    <p class = "card-text"><h5>{{post.text}}</h5></p>
+
+                    {% if post.uname == user%}
+                        <a class= 'editdelete' href = '{%url "postdelete" post.id %}' title='delete'><img src="{% static '../static/image/delete.png' %}"></a>
+                        <a class= 'editdelete' href = '{%url "postupdate" post.id %}' title='edit'><img src="{% static '../static/image/edit.png' %}"></a>
+                    {%endif%}
+                </div>
+                <form action = "{%url 'like_post' post.pk %}" method = 'POST'>
+                    {% csrf_token %}
+                    <button type='submit' class='btn btn-primary btn-sm' name='post_id' value = "{{post.id}}" style = 'margin-left:20px; margin-bottom:2px;'>Like </button> - {{post.total_likes}} 
+                    {% if post.total_likes < 2%}
+                        <span>like</span>
+                    {% else %}
+                        <span>likes</span>
+                    {% endif %}
+                </form>
+            </div>
+            <br>
+
+        {% endfor %}
+    </div>
+
+{% endblock content%}

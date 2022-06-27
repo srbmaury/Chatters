@@ -1,0 +1,171 @@
+.main-div{
+    width: 100%;
+    height: 100%;
+    background-image:url("../image/slow.gif");
+    z-index:0;
+    background-size: cover;
+    position: absolute;
+    align-content: center;
+}
+nav{
+    color:#7942e8;
+}
+#forgot {
+    padding-top: 20px !important;
+    margin-left: 11vw;
+    float: right;
+}
+.main-heading{
+    width: 100%;
+    height: 50px;
+    background-image: url("../image/vanilla.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index:100;
+    position: relative;
+    align-content: center;
+    text-align: center;
+    font-size: 30px;
+    margin-top:20px;
+    margin-bottom:20px;
+    color: blueviolet;
+    line-height: 50px;
+}
+.center{
+    text-align: center;
+    width:30%;
+    display: inline-block;
+    position: relative;
+    background-color: #f2f2f2;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 60px;
+    display: block;
+}
+.label{
+    float: left;
+    font-size: 20px;
+    font-weight:400;
+    margin-top:10px;
+}
+
+.inputfield{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+}
+
+.button{
+    width: 50%;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #ccc; 
+    background-color: #7942e8;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.register{
+    display: inline-block;
+    margin:5px;
+    width:47%;
+}
+
+.welcome{
+    display: inline-block;
+    margin:5px;
+    width:47%;
+    
+}
+.username{
+    color:black;
+}
+
+.contents-of-homepage{
+    margin: auto;
+    background-color: #f5f5f5;
+    border: 1px solid rgb(183, 234, 212);
+    margin-top:20px;
+    margin-bottom: 20px;
+    border-radius:7px;
+    padding: 20px;
+}
+
+.welcome-message{
+    font-size: 20px;
+    font-weight: 400;
+    color: #7942e8;
+}
+
+.instruction{
+    font-size: 20px;
+    font-weight: 400;
+    color: #8d13de;
+}
+.editdelete{
+    margin-left: 20px;
+    float: right;
+}
+
+#joined{
+    font-size: 20px;
+    font-weight: 400;
+    color: #8d13de;
+    float: right;
+}
+
+#view_profile{
+    background-image: url("../image/helper.gif");
+    background-repeat: no-repeat;
+    background-position: 140% 115%;
+    background-size: 60%;
+    background-attachment: fixed;
+}
+
+.user-list{
+    color:#7942e8;
+}
+
+.people-nearby .google-maps{
+  background: #f8f8f8;
+  border-radius: 4px;
+  border: 1px solid #f1f2f2;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.people-nearby .google-maps .map{
+  height: 300px;
+  width: 100%;
+  border: none;
+}
+
+.people-nearby .nearby-user{
+  padding: 20px 0;
+  border-top: 1px solid #f1f2f2;
+  border-bottom: 1px solid #f1f2f2;
+  margin-bottom: 20px;
+}
+
+img.profile-photo-lg{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width:600px){
+    .center{
+        width:95%;
+    }
+    #joined{
+        float:left;
+    }
+    #view_profile{
+        background: white;
+    }
+}

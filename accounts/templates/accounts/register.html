@@ -1,0 +1,66 @@
+{% extends 'accounts/base.html' %}
+
+{%block content%}
+    
+    <div class = 'main-div'>
+        <div class = 'main-heading'></div>
+        <form method = "POST">
+
+            {%if messages%}
+                <div class="alert alert-success" role="alert">
+                    {%for message in messages%}
+                        {{message}}
+                    {%endfor%}
+                </div>
+            {%endif%}
+            
+            {% load static %}
+            {%csrf_token%}
+
+            <div class = 'center'>
+                <fieldset class = 'form-group'>
+                    <legend class = 'form-heading'>Register</legend>
+
+                    <div class="form-label-group register" >
+                        <label for="first_name" class = 'label'>First Name</label>
+                        <input class='inputfield' type="first_name" id="first_name" name="first_name" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-label-group register">
+                        <label for="last_name" class = 'label'>Last name</label>
+                        <input class='inputfield' type="last_name" id="last_name" name="last_name" class="form-control" required>
+                    </div>
+
+                    <div class="form-label-group register">
+                        <label for="username" class = 'label'>Username</label>
+                        <input class='inputfield' type="username" id="username" name="username" class="form-control" required>
+                    </div>
+
+                    <div class="form-label-group register">
+                        <label for="email" class = 'label'>Email</label>
+                        <input class='inputfield' type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-label-group register">
+                        <label for="inputPassword" class = 'label'>Enter password</label>
+                        <input class='inputfield' type="password" name="password1" id="inputPassword" class="form-control" required>
+                    </div>
+
+                    <div class="form-label-group register">
+                        <label for="inputpassword2" class = 'label'>Confirm Password</label>
+                        <input class='inputfield' type="password" name="password2" id="inputpassword2" class="form-control" required>
+                    </div>
+
+                </fieldset>
+
+                <div class = "form-group">
+
+                    <button class = "button" type = "submit">Register</button>
+                    <br><br>
+                    <a href = "{%url 'login' %}"><p>Login, I already have an account</p></a>
+                </div>
+            </div>
+        </form>
+    </div>                        
+    
+{%endblock content%}

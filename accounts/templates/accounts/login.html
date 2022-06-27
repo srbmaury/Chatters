@@ -1,0 +1,44 @@
+{% extends 'accounts/base.html' %}
+
+{%block content%}
+    <div class = 'main-div'>
+
+        {%if messages%}
+            <div class="alert alert-danger">
+                {%for message in messages%}
+                    {{message}}
+                {%endfor%}
+            </div>
+        {%endif%}
+        
+        <div class = 'main-heading'></div>
+        <form method = "POST">
+
+            {% load static %}
+            {%csrf_token%}
+            <div class = 'center'>
+                <fieldset class = 'form-group'>
+                    <legend class = 'form-heading'>Login</legend>
+                    <div class="form-label-group">
+                        <label for="inputuser" class = 'label'>Username or Email</label>
+                        <input type="username" id="inputuser" name="username" class="inputfield form-control" required autofocus>
+                    </div>
+
+                    <div class="form-label-group">
+                        <label for="inputPassword" class = 'label'>Password</label>
+                        <a href="{% url 'password_reset' %}" id="forgot">Forgot your password?</a>
+                        <input type="password" name="password" id="inputPassword"class="inputfield form-control"required>
+                        <label><input name="remember_me" type="checkbox"> Remember me for a month</label>
+                    </div>
+                </fieldset>
+                <div class = "form-group">
+                    <button class = "button" type = "submit" name="login" value="login">Login</button>
+                    <br><br>
+                    <a href = "{%url 'register' %}"><p>Create a new account</p></a>
+                </div>
+            </div>
+
+        </form>
+    </div>                        
+
+{%endblock content%}
