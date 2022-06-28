@@ -14,6 +14,8 @@ A social meida site using django with email authenticated login system where use
 - See when their account was created 
 
 A tab is made which will be visible only to superuser and it contains profiles of all users. 
+
+### Deployed app link: http://srbmaury.pythonanywhere.com/
 # SCREENSHOTS
 <p align="center">
   <h2> Home Page </h2>
