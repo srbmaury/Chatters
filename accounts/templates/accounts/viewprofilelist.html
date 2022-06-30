@@ -13,8 +13,20 @@
                             <div class="nearby-user">
                                 <div class="row">
                                     <div class="col-md-2 col-sm-2">
-                                        <img src="{{curr_user.profile.image.url}}" alt="user" class="profile-photo-lg">
+                                        <img src="{{curr_user.profile.image.url}}" alt="user" class="profile-photo-lg" id="profileimg">
                                     </div>
+
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+                                    <script>
+                                        let img = document.getElementById('profileimg').src;
+                                        let result = img.includes("dafault");
+                                        let name =  `{{user.username}}`;
+                                        if(result){
+                                            document.getElementById('profileimg').src = `https://joeschmoe.io/api/v1/${name}`;
+                                        }
+                                    </script>
+                                    
                                     <div class="col-md-7 col-sm-7">
                                         <h5><a href="#" class="profile-link">{{curr_user.first_name}} {{curr_user.last_name}}</a></h5>
                                         <p>@{{curr_user.username}}</p>
