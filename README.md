@@ -14,6 +14,7 @@ A social meida site using django with email authenticated login system where use
 - See when their account was created 
 
 A tab is made which will be visible only to superuser and it contains profiles of all users. 
+Default profile picture for each user is provided by [Joe Schmoe API](https://joeschmoe.io/#sandbox).
 
 ### Deployed app link: http://srbmaury.pythonanywhere.com/
 # SCREENSHOTS
